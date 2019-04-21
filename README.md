@@ -31,7 +31,25 @@ export default rootReducer;
 ```
 Here is a good example of the previous reducer.
 ```javascript
+
+import { ADD_ARTICLE } from "../constants/action-types";
+const initialState = {
+  articles: []
+};
+function rootReducer(state = initialState, action) {
+  if (action.type === ADD_ARTICLE) {
+    return Object.assign({}, state, {
+      articles: state.articles.concat(action.payload)
+    });
+  }
+  return state;
+}
+export default rootReducer;
 ```
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
